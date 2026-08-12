@@ -1,0 +1,31 @@
+{
+  "id": "IoT_Weather_Station",
+  "title": "IoT Environmental Monitoring Station",
+  "category": "IoT",
+  "difficulty": "Advanced",
+  "chips": ["ESP32", "ESP8266"],
+  "description": "Multi-sensor weather telemetry system measuring ambient temperature, humidity, atmospheric pressure, and air quality index, rendered on a 0.96 inch OLED.",
+  "cover": "/static/images/weather_station.jpg",
+  "pdf": "/projects/IoT_Weather_Station/wiring.pdf",
+  "wiring": [
+    {"from": "ESP32 GPIO21 (SDA)", "to": "OLED SDA & BMP280 SDA", "color": "#4299e1", "notes": "I2C Data Bus"},
+    {"from": "ESP32 GPIO22 (SCL)", "to": "OLED SCL & BMP280 SCL", "color": "#ecc94b", "notes": "I2C Clock Bus"},
+    {"from": "ESP32 GPIO4", "to": "DHT22 Data Pin", "color": "#00ff88", "notes": "1-Wire Digital Signal (10k Pullup)"},
+    {"from": "ESP32 3.3V", "to": "OLED / DHT22 / BMP280 VCC", "color": "#ff4d4d", "notes": "3.3V Regulated Power Rail"},
+    {"from": "ESP32 GND", "to": "Common Sensor GND", "color": "#4a5568", "notes": "Ground wire"}
+  ],
+  "components": [
+    {"name": "ESP32 DevKit V1", "quantity": 1, "specs": "Wi-Fi + Bluetooth SoC"},
+    {"name": "DHT22 Temperature & Humidity Sensor", "quantity": 1, "specs": "High accuracy capacitive digital sensor"},
+    {"name": "BMP280 Barometric Pressure Sensor", "quantity": 1, "specs": "I2C/SPI atmospheric sensor"},
+    {"name": "0.96 inch I2C OLED Display (SSD1306)", "quantity": 1, "specs": "128x64 pixels monochrome"},
+    {"name": "10k Ohm Resistor", "quantity": 1, "specs": "Pull-up resistor for DHT22 data line"}
+  ],
+  "serialPlayback": [
+    "[SYSTEM] IoT Weather Station Bootstrapped.",
+    "[WIFI] Connected to Technosankalp_Lab (IP: 192.168.1.104)",
+    "[SENSOR] Humidity: 54.2%  | Temperature: 26.8°C",
+    "[SENSOR] Humidity: 54.1%  | Temperature: 26.9°C",
+    "[MQTT] Telemetry payload published to topic lab/weather/esp32"
+  ]
+}

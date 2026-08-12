@@ -1,0 +1,57 @@
+{
+  "id": "ECG_Monitor_AD8232",
+  "title": "ECG Monitor (AD8232)",
+  "category": "Health",
+  "chipCategory": "ESP32",
+  "difficulty": "Advanced",
+  "chips": [
+    "ESP32"
+  ],
+  "chipTag": "ESP32",
+  "rating": "4.9",
+  "views": "8.7K",
+  "cover": "/static/images/ecg_monitor.jpg",
+  "description": "Real-time electrocardiogram pulse wave visualization monitor using AD8232 heart sensor and ESP32 with OLED graphical plotting.",
+  "wiring": [
+    {
+      "from": "ESP32 3.3V",
+      "to": "AD8232 3.3V",
+      "color": "#ff4d4d",
+      "notes": "3.3V power"
+    },
+    {
+      "from": "ESP32 GND",
+      "to": "AD8232 GND",
+      "color": "#4a5568",
+      "notes": "Ground wire"
+    },
+    {
+      "from": "ESP32 GPIO36 (VP)",
+      "to": "AD8232 OUTPUT",
+      "color": "#00ff88",
+      "notes": "Analog signal line"
+    }
+  ],
+  "components": [
+    {
+      "name": "ESP32 Microcontroller",
+      "quantity": 1,
+      "specs": "Dual core 240MHz"
+    },
+    {
+      "name": "AD8232 ECG Sensor",
+      "quantity": 1,
+      "specs": "Single-lead heart rate monitor"
+    },
+    {
+      "name": "Biomedical Electrode Pads",
+      "quantity": 3,
+      "specs": "Disposable sticky pads"
+    }
+  ],
+  "serialPlayback": [
+    "[SYSTEM] AD8232 ECG Monitor Initialized.",
+    "BPM=72 | ECG Waveform Signal Clean",
+    "BPM=74 | Peak R-R interval 810ms"
+  ]
+}

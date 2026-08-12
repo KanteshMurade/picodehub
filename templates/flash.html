@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flash Project — PiCodeHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/flash.css">
+</head>
+<body>
+  <div class="flash-shell">
+    <a href="/" class="flash-back"><i class="fas fa-arrow-left"></i> Back to Catalog</a>
+
+    <div class="flash-card">
+      <h1 id="flashTitle"><i class="fas fa-bolt" style="color:#fbbf24;"></i> Flash Your Project</h1>
+      <p class="flash-sub">This board only receives the compiled program. No source code is shown here.</p>
+
+      <div class="flash-grid">
+        <div class="field-row">
+          <label>Target Board</label>
+          <select id="boardSelect"></select>
+        </div>
+        <div class="field-row">
+          <label>Serial Port</label>
+          <div style="display:flex; gap:0.5rem;">
+            <select id="portSelect" style="flex:1;"></select>
+            <button class="btn-secondary" id="refreshPortsBtn" title="Select serial port"><i class="fas fa-rotate"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flash-actions">
+        <button class="btn-primary" id="uploadBtn"><i class="fas fa-upload"></i> Flash to Board</button>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-bar-bg"><div id="progressFill" class="progress-bar-fill"></div></div>
+        <span id="progressText" class="flash-muted">Idle</span>
+      </div>
+
+      <h3 class="flash-muted" style="margin-top:1.5rem;">Console</h3>
+      <pre id="flashConsole" class="terminal-box" style="height:260px;"></pre>
+    </div>
+  </div>
+
+<script src="/static/js/flash.js"></script>
+</body>
+</html>

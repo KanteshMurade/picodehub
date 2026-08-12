@@ -1,0 +1,45 @@
+{
+  "id": "Soil_Moisture_Alarm",
+  "title": "Soil Moisture Alarm",
+  "category": "Sensors",
+  "chipCategory": "Arduino",
+  "difficulty": "Beginner",
+  "chips": [
+    "Arduino Uno"
+  ],
+  "chipTag": "Arduino Uno",
+  "rating": "4.6",
+  "views": "5.8K",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "Smart plant hydration monitor that triggers an audible alarm and automatic water pump when soil moisture falls below threshold.",
+  "wiring": [
+    {
+      "from": "Arduino A0",
+      "to": "Moisture Sensor Analog OUT",
+      "color": "#00ff88",
+      "notes": "Moisture level"
+    },
+    {
+      "from": "Arduino Pin 8",
+      "to": "Relay Module (Water Pump)",
+      "color": "#ff4d4d",
+      "notes": "5V Water Pump"
+    }
+  ],
+  "components": [
+    {
+      "name": "Capacitive Soil Moisture Sensor",
+      "quantity": 1,
+      "specs": "Corrosion resistant"
+    },
+    {
+      "name": "5V Submersible Pump",
+      "quantity": 1,
+      "specs": "Mini DC water pump"
+    }
+  ],
+  "serialPlayback": [
+    "[SOIL] Moisture level: 28% (DRY!)",
+    "[PUMP] Activating irrigation pump for 5s..."
+  ]
+}

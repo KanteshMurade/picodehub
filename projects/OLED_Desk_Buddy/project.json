@@ -1,0 +1,45 @@
+{
+  "id": "OLED_Desk_Buddy",
+  "title": "OLED Desk Buddy",
+  "category": "Other",
+  "chipCategory": "Arduino",
+  "difficulty": "Beginner",
+  "chips": [
+    "Arduino Uno"
+  ],
+  "chipTag": "Arduino Uno",
+  "rating": "4.7",
+  "views": "6.0K",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "Interactive desktop companion with animated pixel faces, Pomodoro study timer, and crypto price tracker.",
+  "wiring": [
+    {
+      "from": "Arduino A4 (SDA)",
+      "to": "OLED SDA",
+      "color": "#4299e1",
+      "notes": "I2C Data"
+    },
+    {
+      "from": "Arduino A5 (SCL)",
+      "to": "OLED SCL",
+      "color": "#ecc94b",
+      "notes": "I2C Clock"
+    }
+  ],
+  "components": [
+    {
+      "name": "Arduino Uno R3",
+      "quantity": 1,
+      "specs": "ATmega328P"
+    },
+    {
+      "name": "0.96 inch SSD1306 OLED",
+      "quantity": 1,
+      "specs": "128x64 display"
+    }
+  ],
+  "serialPlayback": [
+    "[BUDDY] Eye animation frame 4/12",
+    "[TIMER] Pomodoro Session 1: 25 minutes left"
+  ]
+}

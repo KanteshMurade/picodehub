@@ -1,0 +1,29 @@
+{
+  "id": "Health_Pulse_Monitor",
+  "title": "Smart Biometric Heart Rate & SpO2 Monitor",
+  "category": "Health",
+  "difficulty": "Intermediate",
+  "chips": ["ESP32", "Arduino Nano"],
+  "description": "Wearable/desktop biometric tracker that measures pulse rate and blood oxygen saturation (SpO2) using the MAX30102 high-sensitivity pulse oximeter.",
+  "cover": "/static/images/pulse_monitor.jpg",
+  "pdf": "/projects/Health_Pulse_Monitor/wiring.pdf",
+  "wiring": [
+    {"from": "ESP32 3.3V", "to": "MAX30102 VIN", "color": "#ff4d4d", "notes": "Strictly 3.3V power!"},
+    {"from": "ESP32 GND", "to": "MAX30102 GND", "color": "#4a5568", "notes": "Ground connection"},
+    {"from": "ESP32 GPIO21 (SDA)", "to": "MAX30102 SDA", "color": "#4299e1", "notes": "I2C Data line"},
+    {"from": "ESP32 GPIO22 (SCL)", "to": "MAX30102 SCL", "color": "#ecc94b", "notes": "I2C Clock line"},
+    {"from": "ESP32 GPIO19", "to": "MAX30102 INT", "color": "#00ff88", "notes": "Active Low Hardware Interrupt"}
+  ],
+  "components": [
+    {"name": "ESP32 Microcontroller", "quantity": 1, "specs": "Integrated Bluetooth & WiFi"},
+    {"name": "MAX30102 Pulse Oximeter & Heart-Rate Sensor", "quantity": 1, "specs": "Optical PPG sensor module"},
+    {"name": "Breadboard & Jumper Wires", "quantity": 1, "specs": "Dupont jumper set"}
+  ],
+  "serialPlayback": [
+    "[SYSTEM] Health Pulse & SpO2 Monitor initializing...",
+    "[SYSTEM] Place your finger on the optical sensor.",
+    "IR=48210, BPM=72.0, Avg BPM=72",
+    "IR=49104, BPM=73.5, Avg BPM=73",
+    "IR=48890, BPM=71.8, Avg BPM=72"
+  ]
+}

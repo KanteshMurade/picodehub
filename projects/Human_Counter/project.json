@@ -1,0 +1,45 @@
+{
+  "id": "Human_Counter",
+  "title": "Human Counter",
+  "category": "AI",
+  "chipCategory": "Arduino",
+  "difficulty": "Intermediate",
+  "chips": [
+    "Arduino Uno"
+  ],
+  "chipTag": "Arduino Uno",
+  "rating": "4.6",
+  "views": "7.2K",
+  "cover": "/static/images/air_quality.jpg",
+  "description": "Bidirectional room occupancy detector with dual ultrasonic sensors, displaying real-time live human count on 7-segment display.",
+  "wiring": [
+    {
+      "from": "Arduino Pin 2 (Trig1)",
+      "to": "Ultrasonic 1 Trig",
+      "color": "#00ff88",
+      "notes": "Sensor 1 Entry"
+    },
+    {
+      "from": "Arduino Pin 3 (Echo1)",
+      "to": "Ultrasonic 1 Echo",
+      "color": "#4299e1",
+      "notes": "Sensor 1 Echo"
+    }
+  ],
+  "components": [
+    {
+      "name": "HC-SR04 Ultrasonic Sensors",
+      "quantity": 2,
+      "specs": "Distance sensor"
+    },
+    {
+      "name": "TM1637 4-Digit Display",
+      "quantity": 1,
+      "specs": "7-Segment Display"
+    }
+  ],
+  "serialPlayback": [
+    "[ENTRY] Person entered room. Count = 23",
+    "[EXIT] Person left room. Count = 22"
+  ]
+}

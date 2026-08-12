@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technosankalp Solutions - Embedded & IoT Workshop Platform</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/flash.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Left Sidebar Nav -->
+    <aside class="sidebar">
+      <div>
+        <!-- macOS Window Control Dots -->
+        <div class="mac-dots">
+          <span class="mac-dot dot-red"></span>
+          <span class="mac-dot dot-yellow"></span>
+          <span class="mac-dot dot-green"></span>
+        </div>
+
+        <!-- Brand Header Logo -->
+        <div class="brand-header">
+          <div class="brand-icon-box">
+            <i class="fas fa-wave-square"></i>
+          </div>
+          <div class="brand-titles">
+            <h2 id="siteTitleText">Technosankalp Solutions</h2>
+            <p id="siteTaglineText">Build. Code. Innovate.</p>
+          </div>
+        </div>
+
+        <!-- Navigation Items -->
+        <ul class="sidebar-menu">
+          <li class="menu-item active" data-view="catalog"><a href="#catalog"><i class="fas fa-house"></i> <span>Home</span></a></li>
+          <li class="menu-item" data-view="categories"><a href="#categories"><i class="fas fa-layer-group"></i> <span>Categories</span></a></li>
+          <li class="menu-item" data-view="components"><a href="#components"><i class="fas fa-microchip"></i> <span>Components</span></a></li>
+          <li class="menu-item" data-view="tutorials"><a href="#tutorials"><i class="fas fa-graduation-cap"></i> <span>Tutorials</span></a></li>
+          <li class="menu-item" data-view="resources"><a href="#resources"><i class="fas fa-box"></i> <span>Resources</span></a></li>
+          <li class="menu-item" data-view="about"><a href="#about"><i class="fas fa-circle-info"></i> <span>About</span></a></li>
+          <li class="menu-item" data-view="contact"><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+        </ul>
+      </div>
+
+      <div>
+        <!-- Promo Graphic Card -->
+        <div class="promo-card">
+          <i class="fas fa-wand-magic-sparkles" style="font-size: 2rem; color: var(--accent-indigo); margin-bottom: 0.5rem;"></i>
+          <p>Have your own idea? Get it built and delivered to your account.</p>
+          <a href="#" id="promoCustomBtn" class="btn-explore" style="text-decoration: none; display: inline-block;">Request Custom Project &rarr;</a>
+        </div>
+
+        <!-- Social Icons Footer -->
+        <div class="sidebar-socials">
+          <i class="fab fa-youtube" title="YouTube Channel"></i>
+          <i class="fab fa-github" title="GitHub Repository"></i>
+          <i class="fab fa-instagram" title="Instagram"></i>
+          <i class="fab fa-twitter" title="Twitter / X"></i>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Toolbar Bar -->
+      <div class="top-toolbar">
+        <div class="page-heading" id="topPageHeading">
+          <h1><span class="highlight">All</span> Projects</h1>
+          <p>A collection of electronics and IoT projects by Technosankalp Solutions.</p>
+        </div>
+
+        <div class="toolbar-actions">
+          <!-- Search Input -->
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search projects, chips, sensors...">
+            <span class="kbd-shortcut">⌘K</span>
+          </div>
+
+          <!-- View Mode Toggle Buttons -->
+          <div class="view-btn-group">
+            <button class="icon-btn active" id="gridViewBtn" title="Grid View"><i class="fas fa-table-cells-large"></i></button>
+            <button class="icon-btn" id="listViewBtn" title="List View"><i class="fas fa-list"></i></button>
+          </div>
+
+          <!-- Dark/Light Theme Toggle -->
+          <button class="icon-btn" id="themeToggleBtn" style="background: var(--bg-card); border: 1px solid var(--border-color);" title="Toggle Dark/Light Theme">
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+
+          <!-- Auth area: Login / Register buttons, or the logged-in user menu -->
+          <div class="auth-nav" id="authNav">
+            <button class="btn-secondary" id="loginNavBtn">Log In</button>
+            <button class="btn-primary" id="registerNavBtn" style="padding: 0.5rem 1.1rem; border-radius: 25px;">Sign Up</button>
+
+            <div class="auth-user-menu hidden" id="userMenu">
+              <div class="auth-user-trigger" id="userMenuTrigger">
+                <div class="avatar-circle" id="userAvatarInitial">U</div>
+                <span style="font-size: 0.85rem; font-weight: 600;" id="userMenuName">User</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.7rem; color: var(--text-muted);"></i>
+              </div>
+              <div class="auth-dropdown" id="userDropdown">
+                <a href="#" id="myPurchasesBtn"><i class="fas fa-box"></i> My Purchases</a>
+                <a href="#" id="changePasswordBtn"><i class="fas fa-lock"></i> Change Password</a>
+                <a href="/admin" id="adminPanelLink" class="hidden"><i class="fas fa-user-shield"></i> Admin Panel</a>
+                <button id="logoutBtn"><i class="fas fa-right-from-bracket"></i> Log Out</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 1: PROJECTS CATALOG -->
+      <section id="viewCatalog" class="app-view active-view">
+        <!-- Microcontroller & Category Filter Pills -->
+        <div class="filter-pills-bar">
+          <button class="filter-pill active" data-filter="all"><i class="fas fa-layer-group"></i> All</button>
+          <button class="filter-pill" data-filter="Arduino"><i class="fas fa-microchip"></i> Arduino</button>
+          <button class="filter-pill" data-filter="ESP32"><i class="fas fa-wifi"></i> ESP32</button>
+          <button class="filter-pill" data-filter="Raspberry Pi"><i class="fab fa-raspberry-pi"></i> Raspberry Pi</button>
+          <button class="filter-pill" data-filter="Pico"><i class="fas fa-cube"></i> Pico</button>
+          <button class="filter-pill" data-filter="IoT"><i class="fas fa-network-wired"></i> IoT</button>
+          <button class="filter-pill" data-filter="Robotics"><i class="fas fa-robot"></i> Robotics</button>
+          <button class="filter-pill" data-filter="Sensors"><i class="fas fa-gauge-high"></i> Sensors</button>
+          <button class="filter-pill" data-filter="AI"><i class="fas fa-brain"></i> AI</button>
+          <button class="filter-pill" data-filter="Other"><i class="fas fa-ellipsis"></i> Other</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="cards-grid" id="projectsGrid">
+          <!-- Dynamic Cards Rendered via catalog.js -->
+        </div>
+
+        <!-- Load More Projects Button -->
+        <div class="load-more-container">
+          <button class="btn-load-more" id="loadMoreBtn">
+            <i class="fas fa-arrow-down"></i> LOAD MORE PROJECTS <i class="fas fa-arrow-down"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- VIEW 2: CATEGORIES VIEW -->
+      <section id="viewCategories" class="app-view" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Project Categories</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Browse hardware projects by domain and engineering category.</p>
+        </div>
+        <div class="cards-grid" id="categoriesGrid">
+          <!-- Populated by catalog.js -->
+        </div>
+      </section>
+
+      <!-- VIEW 3: COMPONENTS CATALOG VIEW -->
+      <section id="viewComponents" class="app-view" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Hardware Component Library</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Datasheets, pinouts, and hardware specifications for components used in Technosankalp projects.</p>
+        </div>
+        <div class="cards-grid" id="componentsGrid">
+          <!-- Populated by catalog.js -->
+        </div>
+      </section>
+
+      <!-- VIEW 4: TUTORIALS & GUIDES VIEW -->
+      <section id="viewTutorials" class="app-view" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Workshop Tutorials & Guides</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Step-by-step guides for flashing, wiring, driver installation, and IoT workbench setup.</p>
+        </div>
+        <div id="tutorialsContainer" style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- Populated by catalog.js -->
+        </div>
+      </section>
+
+      <!-- VIEW 5: RESOURCES & DOWNLOADS VIEW -->
+      <section id="viewResources" class="app-view" style="display: none;">
+        <div style="margin-bottom: 1.5rem;">
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Resources & Downloads</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Download USB drivers, pinout cheat sheets, schematic reference files, and documentation.</p>
+        </div>
+        <div id="resourcesGrid" class="cards-grid">
+          <!-- Populated by catalog.js -->
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Interactive Project Details Modal -->
+  <div class="modal-overlay" id="projectModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>
+          <i class="fas fa-microchip" style="color: var(--accent-indigo);"></i>
+          <span id="modalTitle">Project Details</span>
+        </h2>
+        <button class="modal-close-btn" id="modalCloseBtn"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="modal-body">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+          <div style="display: flex; gap: 0.75rem; align-items: center;">
+            <span class="sub-chip-pill" id="modalCategory">Security</span>
+            <span style="font-size: 0.8rem; color: var(--text-muted);" id="modalDifficulty">Intermediate</span>
+          </div>
+          
+          <div style="display: flex; gap: 0.75rem;">
+            <a href="#" id="pdfLinkBtn" class="btn-secondary" target="_blank" style="display: none;">
+              <i class="fas fa-file-pdf" style="color: #ef4444;"></i> Wiring PDF
+            </a>
+            <span id="modalPrice" style="font-weight:800; font-size:1.1rem; align-self:center;"></span>
+            <button id="actionBtn" class="btn-primary">
+              <i class="fas fa-cart-shopping"></i> Buy Now
+            </button>
+          </div>
+        </div>
+
+        <p id="modalDesc" style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;"></p>
+
+        <!-- Navigation Tabs inside Modal -->
+        <div>
+          <div class="modal-tabs">
+            <button class="tab-btn active" data-tab="tabWiring"><i class="fas fa-diagram-project"></i> Pin Wiring Table</button>
+            <button class="tab-btn" data-tab="tabComponents"><i class="fas fa-boxes-stacked"></i> Components List</button>
+            <button class="tab-btn" data-tab="tabSerial"><i class="fas fa-terminal"></i> Serial Playback Output</button>
+          </div>
+
+          <!-- Tab Content: Pin Wiring Table -->
+          <div class="tab-pane" id="tabWiring" style="display: block;">
+            <table class="wiring-table">
+              <thead>
+                <tr>
+                  <th>From Pin / Module</th>
+                  <th>To Pin / Target</th>
+                  <th>Wire Color</th>
+                  <th>Function / Notes</th>
+                </tr>
+              </thead>
+              <tbody id="wiringTableBody">
+                <!-- Wiring rows inserted dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tab Content: Components List -->
+          <div class="tab-pane" id="tabComponents" style="display: none;">
+            <table class="wiring-table">
+              <thead>
+                <tr>
+                  <th>Component Name</th>
+                  <th>Quantity</th>
+                  <th>Specification / Details</th>
+                </tr>
+              </thead>
+              <tbody id="componentsTableBody">
+                <!-- Component rows inserted dynamically -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Tab Content: Serial Output Monitor Playback -->
+          <div class="tab-pane" id="tabSerial" style="display: none;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span style="font-size: 0.82rem; color: var(--text-muted);"><i class="fas fa-sliders"></i> Baud Rate: 115200 bps</span>
+              <button class="btn-secondary" id="startPlaybackBtn" style="padding: 0.35rem 0.8rem; font-size: 0.8rem;">
+                <i class="fas fa-play" style="color: var(--accent-green);"></i> Replay Live Stream
+              </button>
+            </div>
+            <div class="terminal-box" id="terminalConsole">
+              <!-- Terminal logs stream here -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div class="modal-overlay" id="aboutModal">
+    <div class="modal-card" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2>
+          <i class="fas fa-wave-square" style="color: var(--accent-indigo);"></i>
+          <span>About Technosankalp Solutions</span>
+        </h2>
+        <button class="modal-close-btn" id="aboutModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" style="gap: 1.25rem; line-height: 1.6; font-size: 0.92rem; color: var(--text-secondary);">
+        <p id="siteAboutText"><strong style="color: var(--text-primary);">Technosankalp Solutions / Sodh Lab</strong> is an innovation platform dedicated to hardware engineering, embedded systems, and IoT education.</p>
+        <p>Our workshop web application connects code editing, pinout wiring visualization, and serial telemetry debugging into a single unified workshop station for engineers, students, and educators.</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
+            <i class="fas fa-microchip" style="color: var(--accent-indigo); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+            <h4 style="color: var(--text-primary); font-size: 0.95rem;">Multi-Chip IDE</h4>
+            <p style="font-size: 0.8rem;">Supports Arduino, ESP32, ESP8266, and Raspberry Pi Pico RP2040.</p>
+          </div>
+          <div style="background: var(--bg-card); padding: 1rem; border-radius: 12px; border: 1px solid var(--border-color);">
+            <i class="fas fa-terminal" style="color: var(--accent-green); font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+            <h4 style="color: var(--text-primary); font-size: 0.95rem;">Live Telemetry</h4>
+            <p style="font-size: 0.8rem;">Real-time SSE serial stream, baud rate configuration, & terminal playback.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal">
+    <div class="modal-card" style="max-width: 560px;">
+      <div class="modal-header">
+        <h2>
+          <i class="fas fa-envelope" style="color: var(--accent-indigo);"></i>
+          <span>Contact Technosankalp Support</span>
+        </h2>
+        <button class="modal-close-btn" id="contactModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="contactForm" class="modal-body" style="gap: 1rem;">
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Your Name</label>
+          <input type="text" id="contactName" required placeholder="Engineer Name" style="width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Email Address</label>
+          <input type="email" id="contactEmail" required placeholder="engineer@domain.com" style="width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-secondary);">Message / Workshop Feedback</label>
+          <textarea id="contactMsg" rows="4" required placeholder="How can we assist with your hardware workshop or project?" style="width: 100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary); font-family: var(--font-sans);"></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="justify-content: center; padding: 0.75rem;">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-right-to-bracket" style="color: var(--accent-indigo);"></i> <span>Log In</span></h2>
+        <button class="modal-close-btn" id="loginModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="loginForm" class="modal-body" style="gap: 1rem;">
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Username or Email</label>
+          <input type="text" id="loginIdentifier" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Password</label>
+          <input type="password" id="loginPassword" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <p id="loginError" class="hidden" style="color:#f87171; font-size:0.85rem;"></p>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:0.75rem;">Log In</button>
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-secondary);">
+          <a href="#" id="forgotPasswordLink" style="color:var(--accent-indigo);">Forgot password?</a>
+        </p>
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-secondary);">New here? <a href="#" id="switchToRegister" style="color:var(--accent-indigo);">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-overlay" id="forgotModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-key" style="color: var(--accent-indigo);"></i> <span>Reset Password</span></h2>
+        <button class="modal-close-btn" id="forgotModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="forgotForm" class="modal-body" style="gap: 1rem;">
+        <p style="color: var(--text-secondary); font-size: 0.85rem;">Enter your account email and we'll send you a link to reset your password.</p>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Email</label>
+          <input type="email" id="forgotEmail" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <p id="forgotError" class="hidden" style="color:#f87171; font-size:0.85rem;"></p>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:0.75rem;">Send Reset Link</button>
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-secondary);">Remembered it? <a href="#" id="switchToLoginFromForgot" style="color:var(--accent-indigo);">Log in</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Password Modal (logged-in users, from profile menu) -->
+  <div class="modal-overlay" id="changePasswordModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-lock" style="color: var(--accent-indigo);"></i> <span>Change Password</span></h2>
+        <button class="modal-close-btn" id="changePasswordModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="changePasswordForm" class="modal-body" style="gap: 1rem;">
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Current Password</label>
+          <input type="password" id="currentPasswordInput" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">New Password</label>
+          <input type="password" id="newPasswordInput" required minlength="6" style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Confirm New Password</label>
+          <input type="password" id="confirmPasswordInput" required minlength="6" style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <p id="changePasswordError" class="hidden" style="color:#f87171; font-size:0.85rem;"></p>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:0.75rem;">Update Password</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="modal-overlay" id="registerModal">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-user-plus" style="color: var(--accent-indigo);"></i> <span>Create Account</span></h2>
+        <button class="modal-close-btn" id="registerModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <form id="registerForm" class="modal-body" style="gap: 1rem;">
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Username</label>
+          <input type="text" id="regUsername" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Email</label>
+          <input type="email" id="regEmail" required style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <div>
+          <label style="display:block; font-size:0.85rem; margin-bottom:0.4rem; color:var(--text-secondary);">Password</label>
+          <input type="password" id="regPassword" required minlength="6" style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.6rem 0.9rem; color: var(--text-primary);">
+        </div>
+        <p id="registerError" class="hidden" style="color:#f87171; font-size:0.85rem;"></p>
+        <button type="submit" class="btn-primary" style="justify-content:center; padding:0.75rem;">Sign Up</button>
+        <p style="text-align:center; font-size:0.85rem; color:var(--text-secondary);">Already have an account? <a href="#" id="switchToLogin" style="color:var(--accent-indigo);">Log in</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Project Requirements Modal -->
+  <div class="modal-overlay" id="customReqModal">
+    <div class="modal-card" style="max-width: 520px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-wand-magic-sparkles" style="color: var(--accent-indigo);"></i> <span>Tell Us Your Idea</span></h2>
+        <button class="modal-close-btn" id="customReqModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" style="gap: 1rem;">
+        <p style="color: var(--text-secondary); font-size: 0.88rem;">Describe exactly what you want built — boards, sensors, behaviour, deadlines. Our team will review it and deliver the compiled project (and any files) straight to your account.</p>
+        <textarea id="customReqText" rows="6" placeholder="e.g. I need an ESP32 project that reads a DHT22 sensor and sends alerts to Telegram when humidity is above 70%..." style="width:100%; background: var(--bg-main); border: 1px solid var(--border-color); border-radius: 8px; padding: 0.7rem 0.9rem; color: var(--text-primary); font-family: var(--font-sans);"></textarea>
+        <button class="btn-primary" id="submitCustomReqBtn" style="justify-content:center; padding:0.75rem;">Send Requirements</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- My Purchases / Requests Modal -->
+  <div class="modal-overlay" id="purchasesModal">
+    <div class="modal-card" style="max-width: 560px;">
+      <div class="modal-header">
+        <h2><i class="fas fa-box" style="color: var(--accent-indigo);"></i> <span>My Purchases</span></h2>
+        <button class="modal-close-btn" id="purchasesModalClose"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body" style="gap: 1rem;" id="purchasesModalBody">
+        <!-- populated by catalog.js -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/catalog.js"></script>
+</body>
+</html>

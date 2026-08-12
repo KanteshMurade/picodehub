@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — PiCodeHub</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="/static/css/flash.css">
+</head>
+<body>
+<div class="admin-shell">
+  <a href="/" style="color:var(--text-secondary); text-decoration:none; font-size:0.9rem;"><i class="fas fa-arrow-left"></i> Back to Catalog</a>
+  <h1 style="margin:1rem 0 0.25rem;"><i class="fas fa-user-shield" style="color:var(--accent-indigo);"></i> Admin Panel</h1>
+  <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:1.5rem;">Manage the project catalog, prices, and custom project requests.</p>
+
+  <div class="admin-tabs">
+    <button class="btn-secondary tab-trigger active" data-tab="tabProjects">Projects</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabCustom">Custom Requests</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabCategories">Categories</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabComponents">Components</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabTutorials">Tutorials</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabResources">Resources</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabSite">Site Settings</button>
+    <button class="btn-secondary tab-trigger" data-tab="tabUsers">Users</button>
+  </div>
+
+  <!-- Projects tab -->
+  <div id="tabProjects" class="admin-tab-pane">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Add New Project</h3>
+      <form id="addProjectForm">
+        <div class="admin-form-grid">
+          <input type="text" name="title" placeholder="Project Title" required>
+          <input type="number" name="price" placeholder="Price (₹)" min="0" step="1" required>
+          <input type="text" name="category" placeholder="Category (e.g. Security)">
+          <input type="text" name="difficulty" placeholder="Difficulty (e.g. Intermediate)">
+          <input type="text" name="chips" placeholder="Boards, comma separated (e.g. ESP32, Arduino Uno)">
+          <input type="file" name="cover" accept="image/*">
+        </div>
+        <textarea class="admin-full-input" name="description" placeholder="Description" rows="2" style="margin-bottom:1rem;"></textarea>
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Compiled Sketch (.ino) — optional, a starter Blink sketch is used if omitted</label>
+          <input type="file" name="sketch" accept=".ino">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Project</button>
+      </form>
+    </div>
+
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Existing Projects</h3>
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Category</th><th>Price (₹)</th><th>Firmware (Flash-in-browser)</th><th></th></tr></thead>
+        <tbody id="projectsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Custom requests tab -->
+  <div id="tabCustom" class="admin-tab-pane" style="display:none;">
+    <div id="customRequestsList"></div>
+  </div>
+
+  <!-- Categories tab -->
+  <div id="tabCategories" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Add Category</h3>
+      <form id="addCategoryForm">
+        <div class="admin-form-grid">
+          <input type="text" name="name" placeholder="Category name (e.g. Robotics)" required>
+          <input type="text" name="icon" placeholder="Font Awesome icon class (e.g. fa-robot)">
+        </div>
+        <textarea class="admin-full-input" name="description" placeholder="Short description" rows="2" style="margin-bottom:1rem;"></textarea>
+        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Category</button>
+      </form>
+    </div>
+    <div class="admin-section">
+      <table class="admin-table">
+        <thead><tr><th>Icon</th><th>Name</th><th>Description</th><th></th></tr></thead>
+        <tbody id="categoriesTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Components tab -->
+  <div id="tabComponents" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Add Component</h3>
+      <form id="addComponentForm">
+        <div class="admin-form-grid">
+          <input type="text" name="name" placeholder="Component name (e.g. DHT22 Sensor)" required>
+          <input type="text" name="type" placeholder="Type (e.g. Sensor)">
+          <input type="text" name="icon" placeholder="Font Awesome icon class (e.g. fa-temperature-half)">
+          <input type="text" name="specs" placeholder="Specs (e.g. -40 to 80C, ±2% RH)">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Component</button>
+      </form>
+    </div>
+    <div class="admin-section">
+      <table class="admin-table">
+        <thead><tr><th>Name</th><th>Type</th><th>Specs</th><th></th></tr></thead>
+        <tbody id="componentsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Tutorials tab -->
+  <div id="tabTutorials" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Add Tutorial</h3>
+      <form id="addTutorialForm">
+        <div class="admin-form-grid">
+          <input type="text" name="title" placeholder="Tutorial title" required>
+          <input type="text" name="level" placeholder="Level (e.g. Beginner)">
+          <input type="text" name="time" placeholder="Read time (e.g. 5 mins)">
+        </div>
+        <textarea class="admin-full-input" name="summary" placeholder="Summary" rows="2" style="margin-bottom:1rem;"></textarea>
+        <textarea class="admin-full-input" name="steps" placeholder="Steps — one per line" rows="4" style="margin-bottom:1rem;"></textarea>
+        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Tutorial</button>
+      </form>
+    </div>
+    <div class="admin-section">
+      <table class="admin-table">
+        <thead><tr><th>Title</th><th>Level</th><th></th></tr></thead>
+        <tbody id="tutorialsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Resources tab -->
+  <div id="tabResources" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Add Resource</h3>
+      <form id="addResourceForm">
+        <div class="admin-form-grid">
+          <input type="text" name="name" placeholder="Resource name" required>
+          <input type="text" name="type" placeholder="Type (e.g. ZIP Driver, PDF Guide)">
+          <input type="text" name="size" placeholder="Size label (e.g. 1.2 MB)">
+          <input type="text" name="url" placeholder="External link (optional, if no file)">
+        </div>
+        <textarea class="admin-full-input" name="description" placeholder="Description" rows="2" style="margin-bottom:1rem;"></textarea>
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.8rem; color:var(--text-secondary); display:block; margin-bottom:0.4rem;">Upload file (optional — overrides the external link)</label>
+          <input type="file" name="file">
+        </div>
+        <button type="submit" class="btn-primary"><i class="fas fa-plus"></i> Add Resource</button>
+      </form>
+    </div>
+    <div class="admin-section">
+      <table class="admin-table">
+        <thead><tr><th>Name</th><th>Type</th><th>Download</th><th></th></tr></thead>
+        <tbody id="resourcesTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Site settings tab -->
+  <div id="tabSite" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <h3 style="margin-bottom:1rem;">Website Text</h3>
+      <form id="siteSettingsForm">
+        <div class="admin-form-grid">
+          <input type="text" name="site_title" placeholder="Site title (e.g. PiCodeHub)">
+          <input type="text" name="site_tagline" placeholder="Tagline (e.g. Build. Code. Innovate.)">
+          <input type="text" name="contact_email" placeholder="Support email">
+          <input type="text" name="contact_phone" placeholder="Support phone (optional)">
+        </div>
+        <textarea class="admin-full-input" name="about_text" placeholder="About text shown in the About modal" rows="3" style="margin-bottom:1rem;"></textarea>
+        <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Save Site Settings</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Users tab -->
+  <div id="tabUsers" class="admin-tab-pane" style="display:none;">
+    <div class="admin-section">
+      <table class="admin-table">
+        <thead><tr><th>Username</th><th>Email</th><th>Role</th><th>Joined</th></tr></thead>
+        <tbody id="usersTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/admin.js"></script>
+</body>
+</html>

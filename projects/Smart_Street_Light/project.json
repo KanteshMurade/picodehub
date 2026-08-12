@@ -1,0 +1,45 @@
+{
+  "id": "Smart_Street_Light",
+  "title": "Smart Street Light",
+  "category": "Automation",
+  "chipCategory": "Raspberry Pi",
+  "difficulty": "Beginner",
+  "chips": [
+    "Raspberry Pi"
+  ],
+  "chipTag": "Raspberry Pi",
+  "rating": "4.8",
+  "views": "9.3K",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "Energy-efficient municipal light controller using LDR light sensors and PIR motion detection to dynamically dim and brighten street lamps.",
+  "wiring": [
+    {
+      "from": "RPi GPIO17",
+      "to": "PIR Motion Sensor OUT",
+      "color": "#00ff88",
+      "notes": "Digital Input"
+    },
+    {
+      "from": "RPi GPIO18",
+      "to": "LED Driver PWM",
+      "color": "#f6ad55",
+      "notes": "PWM Dimmer"
+    }
+  ],
+  "components": [
+    {
+      "name": "Raspberry Pi 4",
+      "quantity": 1,
+      "specs": "Linux host"
+    },
+    {
+      "name": "HC-SR501 PIR Sensor",
+      "quantity": 1,
+      "specs": "Motion detector"
+    }
+  ],
+  "serialPlayback": [
+    "[LIGHT] Night detected. Dimming to 20%.",
+    "[MOTION] Vehicle detected! Brightening to 100%."
+  ]
+}

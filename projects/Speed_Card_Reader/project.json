@@ -1,0 +1,45 @@
+{
+  "id": "Speed_Card_Reader",
+  "title": "Speed Card Reader",
+  "category": "Security",
+  "chipCategory": "ESP32",
+  "difficulty": "Advanced",
+  "chips": [
+    "ESP32-CAM"
+  ],
+  "chipTag": "ESP32-CAM",
+  "rating": "4.9",
+  "views": "1.2K",
+  "cover": "/static/images/ecg_monitor.jpg",
+  "description": "Optical speed scanner reading ID badges and access keys at high speeds using ESP32-CAM camera module and onboard flash LED.",
+  "wiring": [
+    {
+      "from": "ESP32-CAM U0T",
+      "to": "FTDI RX",
+      "color": "#4299e1",
+      "notes": "Serial Tx"
+    },
+    {
+      "from": "ESP32-CAM U0R",
+      "to": "FTDI TX",
+      "color": "#ecc94b",
+      "notes": "Serial Rx"
+    }
+  ],
+  "components": [
+    {
+      "name": "ESP32-CAM Module",
+      "quantity": 1,
+      "specs": "OV2640 Camera"
+    },
+    {
+      "name": "FTDI Adapter",
+      "quantity": 1,
+      "specs": "USB to Serial programmer"
+    }
+  ],
+  "serialPlayback": [
+    "[CAM] Frame captured 1600x1200.",
+    "[OCR] Barcode scanned: USER_99214_GRANTED"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "IoT_Dashboard",
+  "title": "IoT Dashboard",
+  "category": "IoT",
+  "chipCategory": "ESP32",
+  "difficulty": "Advanced",
+  "chips": [
+    "ESP32"
+  ],
+  "chipTag": "ESP32",
+  "rating": "4.5",
+  "views": "5.1K",
+  "cover": "/static/images/air_quality.jpg",
+  "description": "Central MQTT home automation hub managing web sockets, relay switches, current sensors, and live telemetry web charts.",
+  "wiring": [
+    {
+      "from": "ESP32 GPIO4",
+      "to": "Relay Bank Control",
+      "color": "#ff4d4d",
+      "notes": "Home AC Power Switches"
+    }
+  ],
+  "components": [
+    {
+      "name": "ESP32 NodeMCU",
+      "quantity": 1,
+      "specs": "WiFi 802.11 b/g/n"
+    },
+    {
+      "name": "4-Channel Relay Module",
+      "quantity": 1,
+      "specs": "Optocoupler isolated"
+    }
+  ],
+  "serialPlayback": [
+    "[MQTT] Connected to broker (test.mosquitto.org)",
+    "[STATUS] Living Room Light: ON | Temperature: 24.2\u00b0C"
+  ]
+}

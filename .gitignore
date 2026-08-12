@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.pyc
+picodehub.db
+custom_uploads/
+resource_uploads/
+user_workspace/
+
+# arduino-cli build artifacts — installed fresh by build.sh on every deploy,
+# should never be committed to the repo (they're large and machine-specific).
+bin/
+arduino-data/
+arduino-downloads/
+arduino-user/

@@ -1,0 +1,45 @@
+{
+  "id": "Pico_Macro_Keyboard",
+  "title": "Pico Macro Keyboard",
+  "category": "Other",
+  "chipCategory": "Pico",
+  "difficulty": "Intermediate",
+  "chips": [
+    "Raspberry Pi Pico"
+  ],
+  "chipTag": "Raspberry Pi Pico",
+  "rating": "4.8",
+  "views": "5.5K",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "Custom 12-key Mechanical Numpad macro pad with RGB backlighting, custom shortcut keys, and rotary encoder volume knob.",
+  "wiring": [
+    {
+      "from": "Pico GP0 .. GP11",
+      "to": "Key Switches (Matrix)",
+      "color": "#00ff88",
+      "notes": "Key Matrix Pins"
+    },
+    {
+      "from": "Pico GP16",
+      "to": "WS2812B RGB Data",
+      "color": "#a855f7",
+      "notes": "Neopixel LED Strip"
+    }
+  ],
+  "components": [
+    {
+      "name": "Raspberry Pi Pico",
+      "quantity": 1,
+      "specs": "RP2040 Microcontroller"
+    },
+    {
+      "name": "Gateron Mechanical Switches",
+      "quantity": 12,
+      "specs": "Linear Red Switches"
+    }
+  ],
+  "serialPlayback": [
+    "[HID] Keypress: MACRO_1 (Open VS Code)",
+    "[HID] Rotary Knob: Volume Up +2%"
+  ]
+}

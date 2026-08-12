@@ -1,0 +1,45 @@
+{
+  "id": "Air_Quality_Monitor",
+  "title": "Air Quality Monitor",
+  "category": "Sensors",
+  "chipCategory": "ESP32",
+  "difficulty": "Intermediate",
+  "chips": [
+    "ESP32"
+  ],
+  "chipTag": "ESP32",
+  "rating": "4.7",
+  "views": "6.7K",
+  "cover": "/static/images/air_quality.jpg",
+  "description": "Environmental telemetry measuring AQI, PM2.5, CO2 concentrations, and ambient temperature with color OLED status alerts.",
+  "wiring": [
+    {
+      "from": "ESP32 GPIO21 (SDA)",
+      "to": "OLED & MQ-135 SDA",
+      "color": "#4299e1",
+      "notes": "I2C Data"
+    },
+    {
+      "from": "ESP32 GPIO22 (SCL)",
+      "to": "OLED & MQ-135 SCL",
+      "color": "#ecc94b",
+      "notes": "I2C Clock"
+    }
+  ],
+  "components": [
+    {
+      "name": "MQ-135 Air Quality Sensor",
+      "quantity": 1,
+      "specs": "Hazardous gas detector"
+    },
+    {
+      "name": "ESP32 DevKit V1",
+      "quantity": 1,
+      "specs": "WiFi enabled"
+    }
+  ],
+  "serialPlayback": [
+    "[AQI] Index: 42 (GOOD)",
+    "[AQI] CO2: 412 ppm | PM2.5: 12 ug/m3"
+  ]
+}

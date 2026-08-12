@@ -1,0 +1,76 @@
+{
+  "id": "Smart_Door_System",
+  "title": "Smart Door System",
+  "category": "Security",
+  "chipCategory": "Arduino",
+  "difficulty": "Intermediate",
+  "chips": [
+    "ESP32",
+    "Arduino Uno"
+  ],
+  "chipTag": "Arduino Uno",
+  "rating": "4.8",
+  "views": "12.4K",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "RFID-activated smart door lock mechanism featuring RC522 RFID reader, SG90 servo motor, relay strike lock, and piezoceramic buzzer feedback.",
+  "wiring": [
+    {
+      "from": "ESP32 GPIO18",
+      "to": "Servo Control (PWM Signal)",
+      "color": "#f6ad55",
+      "notes": "PWM Pulse stream"
+    },
+    {
+      "from": "ESP32 GPIO5",
+      "to": "RC522 RFID SDA / SS",
+      "color": "#4299e1",
+      "notes": "SPI Chip Select"
+    },
+    {
+      "from": "ESP32 GPIO19",
+      "to": "RC522 RFID MISO",
+      "color": "#ed64a6",
+      "notes": "SPI Master In"
+    },
+    {
+      "from": "ESP32 GPIO23",
+      "to": "RC522 RFID MOSI",
+      "color": "#9f7aea",
+      "notes": "SPI Master Out"
+    },
+    {
+      "from": "ESP32 GPIO21",
+      "to": "Active Buzzer (+)",
+      "color": "#00ff88",
+      "notes": "Audio Feedback"
+    },
+    {
+      "from": "ESP32 GND",
+      "to": "Common GND Rail",
+      "color": "#4a5568",
+      "notes": "Tie all grounds together"
+    }
+  ],
+  "components": [
+    {
+      "name": "ESP32 NodeMCU Board",
+      "quantity": 1,
+      "specs": "CP2102 USB Bridge"
+    },
+    {
+      "name": "RC522 RFID Module",
+      "quantity": 1,
+      "specs": "13.56 MHz Reader"
+    },
+    {
+      "name": "SG90 Micro Servo",
+      "quantity": 1,
+      "specs": "9g 180\u00b0 rotation"
+    }
+  ],
+  "serialPlayback": [
+    "[SYSTEM] Smart Door Lock armed.",
+    "[EVENT] RFID Tag Detected: 84:A2:39:FF",
+    "[SECURITY] Access Granted! Unlocking Servo..."
+  ]
+}

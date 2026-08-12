@@ -1,0 +1,27 @@
+{
+  "id": "Blink",
+  "title": "Blink LED Starter",
+  "category": "General",
+  "difficulty": "Beginner",
+  "chips": ["Arduino Uno", "ESP32", "ESP8266"],
+  "description": "The quintessential hello-world project for microcontroller enthusiasts. Blinks an onboard or external LED while reporting pin state over Serial.",
+  "cover": "/static/images/blink.jpg",
+  "pdf": "/projects/Blink/wiring.pdf",
+  "wiring": [
+    {"from": "Arduino Pin 13", "to": "LED Anode (+)", "color": "#00ff88", "notes": "Signal pin output"},
+    {"from": "Arduino GND", "to": "220Ω Resistor -> LED Cathode (-)", "color": "#4a5568", "notes": "Common ground"}
+  ],
+  "components": [
+    {"name": "Arduino Uno / ESP32", "quantity": 1, "specs": "Any standard board"},
+    {"name": "5mm Green LED", "quantity": 1, "specs": "Standard 2V 20mA LED"},
+    {"name": "220 Ohm Resistor", "quantity": 1, "specs": "Current limiting resistor"}
+  ],
+  "serialPlayback": [
+    "[SYSTEM] Blink test initialized on Pin 13.",
+    "STATUS: LED ON",
+    "STATUS: LED OFF",
+    "STATUS: LED ON",
+    "STATUS: LED OFF",
+    "STATUS: LED ON"
+  ]
+}

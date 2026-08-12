@@ -1,0 +1,20 @@
+{
+  "id": "Weather_Station",
+  "title": "Weather Station",
+  "category": "IoT",
+  "difficulty": "Beginner",
+  "chips": [
+    "ESP8266"
+  ],
+  "chipTag": "ESP8266",
+  "rating": "New",
+  "views": "0",
+  "cover": "/static/images/smart_door.jpg",
+  "description": "",
+  "price": 349.0,
+  "wiring": [],
+  "components": [],
+  "serialPlayback": [
+    "[SYSTEM] Project ready."
+  ]
+}
